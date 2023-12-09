@@ -18,7 +18,7 @@
 
 # 📖 About This Project <a name="about-project"></a>
 
-> GitHub Profiles A website built with HTML, SCSS, and TypeScript, utilizing the GitHub API and Axios for seamless data retrieval. Linters are employed to maintain clean code. Explore the live demo to search for any GitHub user.
+> Live-User-Filter is a website created with HTML, SCSS, and TypeScript, using randomuser.me for fetching data. We also use linters to verify code errors and maintain clean code. Please check out the live demo.
 
 # Sample Of Website <a name="Sample-Of-Website"></a>
 
