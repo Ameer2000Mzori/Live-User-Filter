@@ -4,9 +4,21 @@ const textInput = document.getElementsByClassName("text-Input")[0];
 // global varibal
 
 // api key
-
+const API_KEY = `https://randomuser.me/api/?results=10`;
 // fetch api function
+async function listData(API_KEY) {
+  try {
+    const res = await fetch(API_KEY);
 
+    const data = await res.json();
+    let usersInfo = data.results;
+    console.log(usersInfo);
+  } catch (error) {
+    console.log("you got an error in :", error);
+  }
+}
+
+listData(API_KEY);
 // functions
 
 //eventlisnters
