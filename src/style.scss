@@ -87,58 +87,59 @@ body {
 
     .users-Wrapper {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       text-align: center;
-      align-items: center;
+      align-items: start;
       width: 100%;
       height: 80%;
       overflow: auto;
-    }
+      flex-wrap: wrap;
 
-    .profile-Card {
-      display: flex;
-      text-align: start;
-      align-items: center;
-      height: 20%;
-      margin-top: 5px;
-      width: 100%;
-      border: solid $colorFour 2px;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      padding: 5px;
-      gap: 7px;
-      overflow: hidden;
-
-      .profile-Img {
-        height: 90px;
-        border-radius: 50%;
-        width: 30%;
-        margin-right: 5px;
-        margin-left: 5px;
-      }
-
-      .info-Wrap {
-        width: 70%;
-        height: 100%;
-        text-align: center;
-        align-items: start;
+      .profile-Card {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        text-align: start;
+        align-items: center;
+        height: 20%;
+        margin-top: 5px;
+        width: 100%;
+        border: solid $colorFour 2px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 5px;
+        gap: 7px;
         overflow: hidden;
 
-        h3 {
-          padding: 0;
-          margin: 0;
-          font-family: $fontOne;
+        .profile-Img {
+          height: 90px;
+          border-radius: 50%;
+          width: 30%;
+          margin-right: 5px;
+          margin-left: 5px;
         }
 
-        p {
-          padding: 0;
-          margin: 0;
-          font-size: 14px;
-          font-family: $fontOne;
+        .info-Wrap {
+          width: 70%;
+          height: 100%;
+          text-align: center;
+          align-items: start;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden;
+
+          h3 {
+            padding: 0;
+            margin: 0;
+            font-family: $fontOne;
+          }
+
+          p {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            font-family: $fontOne;
+          }
         }
       }
     }

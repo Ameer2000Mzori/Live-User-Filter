@@ -81,15 +81,16 @@ body {
 
 .header .head .users-Wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
-  align-items: center;
+  align-items: start;
   width: 100%;
   height: 80%;
   overflow: auto;
+  flex-wrap: wrap;
 }
 
-.header .head .profile-Card {
+.header .head .users-Wrapper .profile-Card {
   display: flex;
   text-align: start;
   align-items: center;
@@ -105,7 +106,7 @@ body {
   overflow: hidden;
 }
 
-.header .head .profile-Card .profile-Img {
+.header .head .users-Wrapper .profile-Card .profile-Img {
   height: 90px;
   border-radius: 50%;
   width: 30%;
@@ -113,7 +114,7 @@ body {
   margin-left: 5px;
 }
 
-.header .head .profile-Card .info-Wrap {
+.header .head .users-Wrapper .profile-Card .info-Wrap {
   width: 70%;
   height: 100%;
   text-align: center;
@@ -124,13 +125,13 @@ body {
   overflow: hidden;
 }
 
-.header .head .profile-Card .info-Wrap h3 {
+.header .head .users-Wrapper .profile-Card .info-Wrap h3 {
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
 }
 
-.header .head .profile-Card .info-Wrap p {
+.header .head .users-Wrapper .profile-Card .info-Wrap p {
   padding: 0;
   margin: 0;
   font-size: 14px;
