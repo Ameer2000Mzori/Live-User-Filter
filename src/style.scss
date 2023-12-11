@@ -28,6 +28,9 @@ body {
     align-items: center;
     height: 600px;
     width: 300px;
+    border: solid $colorOne 2px;
+    border-radius: 20px;
+    overflow: hidden;
 
     .title {
       height: 15%;
@@ -116,13 +119,14 @@ body {
       }
 
       .info-Wrap {
-        width: 80%;
+        width: 70%;
         height: 100%;
         text-align: center;
         align-items: start;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        overflow: hidden;
 
         h3 {
           padding: 0;
