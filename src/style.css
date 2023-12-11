@@ -75,3 +75,60 @@ body {
   color: white;
   font-family: "Roboto", sans-serif;
 }
+
+.header .head .users-Wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  overflow: auto;
+}
+
+.header .head .profile-Card {
+  display: flex;
+  text-align: start;
+  align-items: center;
+  height: 20%;
+  margin-top: 5px;
+  width: 100%;
+  border: solid #8eaccd 2px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 5px;
+  gap: 7px;
+  overflow: hidden;
+}
+
+.header .head .profile-Card .profile-Img {
+  height: 90px;
+  border-radius: 50%;
+  width: 30%;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.header .head .profile-Card .info-Wrap {
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header .head .profile-Card .info-Wrap h3 {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.header .head .profile-Card .info-Wrap p {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}

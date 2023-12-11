@@ -6,6 +6,7 @@ $fontTwo: "Silkscreen", sans-serif;
 $colorOne: #3876bf;
 $colorTwo: #0c356a;
 $colorThree: #6499e9;
+$colorFour: #8eaccd;
 
 body {
   padding: 0;
@@ -78,6 +79,63 @@ body {
       .text-Input::placeholder {
         color: white;
         font-family: $fontOne;
+      }
+    }
+
+    .users-Wrapper {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      width: 100%;
+      height: 80%;
+      overflow: auto;
+    }
+
+    .profile-Card {
+      display: flex;
+      text-align: start;
+      align-items: center;
+      height: 20%;
+      margin-top: 5px;
+      width: 100%;
+      border: solid $colorFour 2px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      padding: 5px;
+      gap: 7px;
+      overflow: hidden;
+
+      .profile-Img {
+        height: 90px;
+        border-radius: 50%;
+        width: 30%;
+        margin-right: 5px;
+        margin-left: 5px;
+      }
+
+      .info-Wrap {
+        width: 80%;
+        height: 100%;
+        text-align: center;
+        align-items: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h3 {
+          padding: 0;
+          margin: 0;
+          font-family: $fontOne;
+        }
+
+        p {
+          padding: 0;
+          margin: 0;
+          font-size: 14px;
+          font-family: $fontOne;
+        }
       }
     }
   }
