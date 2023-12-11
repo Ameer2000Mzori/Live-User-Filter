@@ -3,8 +3,11 @@ const usersWrapper = document.getElementsByClassName("users-Wrapper")[0];
 const textInput = document.getElementsByClassName("text-Input")[0];
 // global varibal
 
+let userName = "Ameer";
+
 // api key
 const API_KEY = `https://randomuser.me/api/?results=10`;
+
 // fetch api function
 async function listData(API_KEY) {
   try {
@@ -46,12 +49,19 @@ const laodProfiles = (usersInfo) => {
   }
 };
 
+// input function
+const findUser = () => {
+  // https://randomuser.me/api/?results=10
+};
+
 //eventlisnters
 window.addEventListener("load", () => {
   listData(API_KEY);
 });
 textInput.addEventListener("input", (e) => {
+  let searchTextInput = e.target.value;
   console.log("you entered ", e.target.value);
+  findUser(searchTextInput);
 });
 
 // our html loop up

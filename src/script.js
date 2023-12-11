@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var usersWrapper = document.getElementsByClassName("users-Wrapper")[0];
 var textInput = document.getElementsByClassName("text-Input")[0];
 // global varibal
+var userName = "Ameer";
 // api key
 var API_KEY = "https://randomuser.me/api/?results=10";
 // fetch api function
@@ -89,12 +90,18 @@ var laodProfiles = function (usersInfo) {
         usersWrapper.appendChild(profileCard);
     }
 };
+// input function
+var findUser = function () {
+    // https://randomuser.me/api/?results=10
+};
 //eventlisnters
 window.addEventListener("load", function () {
     listData(API_KEY);
 });
 textInput.addEventListener("input", function (e) {
+    var searchTextInput = e.target.value;
     console.log("you entered ", e.target.value);
+    findUser(searchTextInput);
 });
 // our html loop up
 // <div class="profile-Card">
