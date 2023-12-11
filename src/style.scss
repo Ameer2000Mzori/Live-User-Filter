@@ -3,6 +3,10 @@
 $fontOne: "Roboto", sans-serif;
 $fontTwo: "Silkscreen", sans-serif;
 
+$colorOne: #3876bf;
+$colorTwo: #0c356a;
+$colorThree: #6499e9;
+
 body {
   padding: 0;
   margin: 0;
@@ -13,4 +17,68 @@ body {
   flex-direction: column;
   text-align: center;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .head {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 600px;
+    width: 300px;
+
+    .title {
+      height: 15%;
+      width: 100%;
+      background-color: $colorOne;
+      text-align: start;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+
+      h4 {
+        font-size: 25px;
+        font-family: $fontOne;
+        color: white;
+        margin-left: 10px;
+        margin-bottom: 0;
+        margin-right: 0;
+      }
+
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 15px;
+        font-family: $fontOne;
+        color: white;
+        margin-left: 11px;
+      }
+    }
+
+    .input-Text-Wrap {
+      height: 10%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      background-color: $colorOne;
+
+      .text-Input {
+        background-color: $colorTwo;
+        color: white;
+        font-family: $fontOne;
+        outline: none;
+        padding: 8px 40px;
+        border-radius: 2rem;
+        border: solid $colorThree 2px;
+      }
+
+      .text-Input::placeholder {
+        color: white;
+        font-family: $fontOne;
+      }
+    }
+  }
 }
