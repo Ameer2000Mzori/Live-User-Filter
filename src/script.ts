@@ -13,17 +13,42 @@ async function listData(API_KEY) {
     const data = await res.json();
     let usersInfo = data.results;
     console.log(usersInfo);
+    laodProfiles(usersInfo);
   } catch (error) {
     console.log("you got an error in :", error);
   }
 }
 
-listData(API_KEY);
 // functions
+const laodProfiles = (usersInfo) => {
+  for (let data of usersInfo) {
+    const profileCard = document.createElement("div");
+    profileCard.classList.add("profile-Card");
+
+    const profileImg = document.createElement("img");
+    profileImg.src = data.picture.medium;
+    profileImg.classList.add("profile-Img");
+    profileCard.appendChild(profileImg);
+
+    const infoWrap = document.createElement("div");
+    infoWrap.classList.add("info-Wrap");
+    profileCard.appendChild(infoWrap);
+
+    const h3Text = document.createElement("h3");
+    h3Text.textContent = data.name.first;
+    infoWrap.appendChild(h3Text);
+
+    const pText = document.createElement("p");
+    pText.textContent = `${data.location.city}, ${data.location.state}`;
+    infoWrap.appendChild(pText);
+
+    usersWrapper.appendChild(profileCard);
+  }
+};
 
 //eventlisnters
 window.addEventListener("load", () => {
-  console.log("hallo world");
+  listData(API_KEY);
 });
 textInput.addEventListener("input", (e) => {
   console.log("you entered ", e.target.value);

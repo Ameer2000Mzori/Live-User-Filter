@@ -56,6 +56,7 @@ function listData(API_KEY) {
                     data = _a.sent();
                     usersInfo = data.results;
                     console.log(usersInfo);
+                    laodProfiles(usersInfo);
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();
@@ -66,11 +67,31 @@ function listData(API_KEY) {
         });
     });
 }
-listData(API_KEY);
 // functions
+var laodProfiles = function (usersInfo) {
+    for (var _i = 0, usersInfo_1 = usersInfo; _i < usersInfo_1.length; _i++) {
+        var data = usersInfo_1[_i];
+        var profileCard = document.createElement("div");
+        profileCard.classList.add("profile-Card");
+        var profileImg = document.createElement("img");
+        profileImg.src = data.picture.medium;
+        profileImg.classList.add("profile-Img");
+        profileCard.appendChild(profileImg);
+        var infoWrap = document.createElement("div");
+        infoWrap.classList.add("info-Wrap");
+        profileCard.appendChild(infoWrap);
+        var h3Text = document.createElement("h3");
+        h3Text.textContent = data.name.first;
+        infoWrap.appendChild(h3Text);
+        var pText = document.createElement("p");
+        pText.textContent = "".concat(data.location.city, ", ").concat(data.location.state);
+        infoWrap.appendChild(pText);
+        usersWrapper.appendChild(profileCard);
+    }
+};
 //eventlisnters
 window.addEventListener("load", function () {
-    console.log("hallo world");
+    listData(API_KEY);
 });
 textInput.addEventListener("input", function (e) {
     console.log("you entered ", e.target.value);
