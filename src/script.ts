@@ -140,7 +140,7 @@ window.addEventListener("load", () => {
 });
 
 // taking text from textInput
-textInput.addEventListener("input", (e) => {
+textInput.addEventListener("input", (e: any) => {
   let searchTextInput = e.target.value;
   console.log("you entered ", searchTextInput);
   findUser(searchTextInput);
