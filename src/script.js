@@ -34,13 +34,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 // selecting our elements
 var usersWrapper = document.getElementsByClassName("users-Wrapper")[0];
 var textInput = document.getElementsByClassName("text-Input")[0];
-// global varibal
-var userName = "Ameer";
+// global variable
+var listUsers = [
+    {
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnGZWTF4dIu8uBZzgjwWRKJJ4DisphDHEwT2KhLNxBAA&s",
+        name: "Vivian",
+        city: "iraq",
+        state: "iraq",
+    },
+];
 // api key
-var API_KEY = "https://randomuser.me/api/?results=10";
+var API_KEY = "https://randomuser.me/api/?results=50";
 // fetch api function
 function listData(API_KEY) {
     return __awaiter(this, void 0, void 0, function () {
@@ -70,6 +86,8 @@ function listData(API_KEY) {
 }
 // functions
 var laodProfiles = function (usersInfo) {
+    // Clear listUsers array before loading new profiles
+    listUsers = [];
     for (var _i = 0, usersInfo_1 = usersInfo; _i < usersInfo_1.length; _i++) {
         var data = usersInfo_1[_i];
         var profileCard = document.createElement("div");
@@ -88,30 +106,69 @@ var laodProfiles = function (usersInfo) {
         pText.textContent = "".concat(data.location.city, ", ").concat(data.location.state);
         infoWrap.appendChild(pText);
         usersWrapper.appendChild(profileCard);
+        var newObj = {
+            img: data.picture.medium,
+            name: data.name.first,
+            city: data.location.city,
+            state: data.location.state,
+        };
+        listUsers.push(newObj);
+    }
+    console.log(listUsers);
+};
+var filterUserInfo = function (usersInfo) {
+    // Clear the existing user cards
+    usersWrapper.innerHTML = "";
+    for (var _i = 0, usersInfo_2 = usersInfo; _i < usersInfo_2.length; _i++) {
+        var data = usersInfo_2[_i];
+        var profileCard = document.createElement("div");
+        profileCard.classList.add("profile-Card");
+        var profileImg = document.createElement("img");
+        profileImg.src = data.img;
+        profileImg.classList.add("profile-Img");
+        profileCard.appendChild(profileImg);
+        var infoWrap = document.createElement("div");
+        infoWrap.classList.add("info-Wrap");
+        profileCard.appendChild(infoWrap);
+        var h3Text = document.createElement("h3");
+        h3Text.textContent = data.name;
+        infoWrap.appendChild(h3Text);
+        var pText = document.createElement("p");
+        pText.textContent = "".concat(data.city, ", ").concat(data.state);
+        infoWrap.appendChild(pText);
+        usersWrapper.appendChild(profileCard);
     }
 };
+// search function load data :
 // input function
-var findUser = function () {
-    // https://randomuser.me/api/?results=10
+var findUser = function (searchTextInput) {
+    // Filter users based on the current search text
+    var matchingUsers = listUsers.filter(function (user) {
+        return user.name
+            .toLocaleLowerCase()
+            .startsWith(searchTextInput.toLocaleLowerCase());
+    });
+    console.log("Our old list", listUsers);
+    console.log("Our new list", matchingUsers);
+    if (matchingUsers.length > 0) {
+        // If matchingUsers is not empty
+        listUsers = __spreadArray(__spreadArray([], matchingUsers, true), listUsers.filter(function (user) {
+            return !matchingUsers.some(function (matchingUser) { return matchingUser.name === user.name; });
+        }), true);
+        console.log("Our new listUsers after updating data", listUsers);
+        filterUserInfo(listUsers);
+    }
+    else {
+        console.log("No data");
+        filterUserInfo([]); // Clear the user container if no match is found
+    }
 };
-//eventlisnters
+//event listeners
 window.addEventListener("load", function () {
     listData(API_KEY);
 });
 textInput.addEventListener("input", function (e) {
     var searchTextInput = e.target.value;
-    console.log("you entered ", e.target.value);
+    console.log("you entered ", searchTextInput);
     findUser(searchTextInput);
 });
-// our html loop up
-// <div class="profile-Card">
-// <img
-//   class="profile-Img"
-//   src="https://randomuser.me/api/portraits/men/0.jpg"
-//   alt=""
-// />
-// <div class="info-Wrap">
-//   <h3>Ameer Ameen</h3>
-//   <p>Amsterdam, Netherlands</p>
-// </div>
-// </div>
