@@ -50,9 +50,9 @@ var textInput = document.getElementsByClassName("text-Input")[0];
 var listUsers = [
     {
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnGZWTF4dIu8uBZzgjwWRKJJ4DisphDHEwT2KhLNxBAA&s",
-        name: "Vivian",
-        city: "iraq",
-        state: "iraq",
+        name: "Ameer",
+        city: "Amsterdam",
+        state: "NoordHolland",
     },
 ];
 // api key
