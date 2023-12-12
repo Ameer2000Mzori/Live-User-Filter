@@ -3,6 +3,8 @@ const usersWrapper = document.getElementsByClassName("users-Wrapper")[0];
 const textInput = document.getElementsByClassName("text-Input")[0];
 
 // global variable
+
+// our user object
 let listUsers = [
   {
     img: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnGZWTF4dIu8uBZzgjwWRKJJ4DisphDHEwT2KhLNxBAA&s`,
@@ -21,7 +23,6 @@ async function listData(API_KEY) {
     const res = await fetch(API_KEY);
     const data = await res.json();
     let usersInfo = data.results;
-    console.log(usersInfo);
     laodProfiles(usersInfo);
   } catch (error) {
     console.log("you got an error in :", error);
@@ -29,6 +30,8 @@ async function listData(API_KEY) {
 }
 
 // functions
+
+// shwoing the data when first loaded
 const laodProfiles = (usersInfo) => {
   // Clear listUsers array before loading new profiles
   listUsers = [];
@@ -56,6 +59,7 @@ const laodProfiles = (usersInfo) => {
 
     usersWrapper.appendChild(profileCard);
 
+    // saving any data that comes from api to our object
     let newObj = {
       img: data.picture.medium,
       name: data.name.first,
@@ -63,11 +67,13 @@ const laodProfiles = (usersInfo) => {
       state: data.location.state,
     };
 
+    // pushing
     listUsers.push(newObj);
   }
   console.log(listUsers);
 };
 
+// when filtering, loads user that found to screen
 const filterUserInfo = (usersInfo) => {
   // Clear the existing user cards
   usersWrapper.innerHTML = ``;
@@ -133,6 +139,7 @@ window.addEventListener("load", () => {
   listData(API_KEY);
 });
 
+// taking text from textInput
 textInput.addEventListener("input", (e) => {
   let searchTextInput = e.target.value;
   console.log("you entered ", searchTextInput);

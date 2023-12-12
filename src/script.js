@@ -47,6 +47,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 var usersWrapper = document.getElementsByClassName("users-Wrapper")[0];
 var textInput = document.getElementsByClassName("text-Input")[0];
 // global variable
+// our user object
 var listUsers = [
     {
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnGZWTF4dIu8uBZzgjwWRKJJ4DisphDHEwT2KhLNxBAA&s",
@@ -72,7 +73,6 @@ function listData(API_KEY) {
                 case 2:
                     data = _a.sent();
                     usersInfo = data.results;
-                    console.log(usersInfo);
                     laodProfiles(usersInfo);
                     return [3 /*break*/, 4];
                 case 3:
@@ -85,6 +85,7 @@ function listData(API_KEY) {
     });
 }
 // functions
+// shwoing the data when first loaded
 var laodProfiles = function (usersInfo) {
     // Clear listUsers array before loading new profiles
     listUsers = [];
@@ -106,16 +107,19 @@ var laodProfiles = function (usersInfo) {
         pText.textContent = "".concat(data.location.city, ", ").concat(data.location.state);
         infoWrap.appendChild(pText);
         usersWrapper.appendChild(profileCard);
+        // saving any data that comes from api to our object
         var newObj = {
             img: data.picture.medium,
             name: data.name.first,
             city: data.location.city,
             state: data.location.state,
         };
+        // pushing
         listUsers.push(newObj);
     }
     console.log(listUsers);
 };
+// when filtering, loads user that found to screen
 var filterUserInfo = function (usersInfo) {
     // Clear the existing user cards
     usersWrapper.innerHTML = "";
@@ -167,6 +171,7 @@ var findUser = function (searchTextInput) {
 window.addEventListener("load", function () {
     listData(API_KEY);
 });
+// taking text from textInput
 textInput.addEventListener("input", function (e) {
     var searchTextInput = e.target.value;
     console.log("you entered ", searchTextInput);
